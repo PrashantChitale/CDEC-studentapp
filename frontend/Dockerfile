@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 RUN apt update && apt install nodejs npm -y
 
-COPY . /app
+
 WORKDIR /app
+COPY . /app
 RUN npm install
 RUN npm run build
 
