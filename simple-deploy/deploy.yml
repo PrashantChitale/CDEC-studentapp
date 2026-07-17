@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-backend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-backend-app    # point to deployment file app label
+  template:
+    metadata:
+      name: student-backend-app-pod
+      labels:
+        app: student-backend-app    # point to service file selector
+    spec:
+      containers:
+        - name: student-backend-app-container
+          image: prashantchitale22/javab:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:mariadb://10.100.201.133:3306/student_db
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: PASSWORD
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
