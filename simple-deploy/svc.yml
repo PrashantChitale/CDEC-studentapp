@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-backend-svc
+spec:
+    selector:
+      app: student-backend-app    # point to deployment file app label
+    ports:
+      - port: 8080
+        targetPort: 8080
+        protocol: TCP
+    type: ClusterIP
