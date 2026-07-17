@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: student-app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: student-backend-svc
+                port:
+                  number: 8080
+      host: a83ded0c8a952437b97bff393138d1f2-2118097490.ap-south-1.elb.amazonaws.com
