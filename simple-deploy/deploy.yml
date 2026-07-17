@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: student-backend-app-container
-          image: prashantchitale22/javab:latest
+          image: prashantchitale22/easy-backend:latest
           ports:
             - containerPort: 8080
           env:
