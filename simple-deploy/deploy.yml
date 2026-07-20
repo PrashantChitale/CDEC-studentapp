@@ -20,7 +20,7 @@ spec:
             - containerPort: 8080
           env:
             - name: DB_URL
-              value: jdbc:mariadb://10.100.201.133:3306/student_db
+              value: jdbc:mariadb://database-1.c61ioo0y6zfq.us-east-1.rds.amazonaws.com:3306/student_db
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
