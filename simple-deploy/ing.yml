@@ -16,4 +16,4 @@ spec:
                 name: student-backend-svc
                 port:
                   number: 8080
-      host: a83ded0c8a952437b97bff393138d1f2-2118097490.ap-south-1.elb.amazonaws.com
+      host: aba8887fc911c43a7bb1d964c1bb3840-1202117864.us-east-1.elb.amazonaws.com
